@@ -1,0 +1,275 @@
+.support-page {
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+.support-header {
+    height: 64px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.support-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+}
+
+.support-brand-mark {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--primary);
+    border-radius: 6px;
+
+    color: white;
+    font-size: 12px;
+}
+
+.support-container {
+    width: min(1280px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 36px 0 60px;
+}
+
+.support-title {
+    margin-bottom: 26px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.support-title h1 {
+    margin-bottom: 7px;
+    font-size: 30px;
+    letter-spacing: -0.03em;
+}
+
+.support-title p {
+    margin-bottom: 0;
+    color: var(--text-soft);
+}
+
+.support-metrics {
+    margin-bottom: 22px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.support-metric {
+    padding: 18px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.support-metric span {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--text-soft);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.support-metric strong {
+    font-size: 28px;
+    letter-spacing: -0.03em;
+}
+
+.support-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.support-toolbar {
+    padding: 16px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.support-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.support-filters .form-control {
+    min-width: 170px;
+}
+
+.support-table-wrapper {
+    overflow-x: auto;
+}
+
+.support-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.support-table th,
+.support-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+.support-table th {
+    background: #fafbfc;
+
+    color: var(--text-soft);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.support-table td {
+    font-size: 14px;
+}
+
+.support-table tbody tr:hover {
+    background: #fafbfc;
+}
+
+.support-ticket-title {
+    font-weight: 700;
+}
+
+.support-ticket-user {
+    margin-top: 4px;
+    color: var(--text-soft);
+    font-size: 12px;
+}
+
+.support-empty {
+    padding: 50px 24px;
+    color: var(--text-soft);
+    text-align: center;
+}
+
+.ticket-detail-panel {
+    margin-top: 22px;
+}
+
+.ticket-detail-header {
+    padding: 20px 22px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.ticket-detail-header h2 {
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+.ticket-detail-header p {
+    margin-bottom: 0;
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+.ticket-detail-body {
+    padding: 22px;
+}
+
+.ticket-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 28px;
+}
+
+.ticket-detail-description {
+    color: #434b57;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.ticket-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ticket-properties .form-group {
+    margin: 0;
+}
+
+.ticket-detail-actions {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.support-message {
+    margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+    .support-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ticket-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .support-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .support-header {
+        padding: 0 16px;
+    }
+
+    .support-container {
+        width: min(100% - 28px, 1280px);
+        padding-top: 28px;
+    }
+
+    .support-title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .support-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .support-filters {
+        flex-direction: column;
+    }
+
+    .support-filters .form-control {
+        min-width: 0;
+    }
+}

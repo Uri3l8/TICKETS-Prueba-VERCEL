@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soporte | Sistema de Tickets</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/soporte.css">
+</head>
+
+<body class="support-page">
+
+    <header class="support-header">
+
+        <a class="support-brand" href="index.html">
+            <span class="support-brand-mark">ST</span>
+            <span>Sistema de Tickets</span>
+        </a>
+
+        <a class="btn btn-secondary btn-small" href="index.html">
+            Volver al inicio
+        </a>
+
+    </header>
+
+    <main class="support-container">
+
+        <section class="support-title">
+
+            <div>
+                <h1>Panel de soporte</h1>
+                <p>
+                    Revisa y actualiza el estado de las solicitudes recibidas.
+                </p>
+            </div>
+
+            <button
+                class="btn btn-secondary"
+                id="btnActualizar"
+                type="button"
+            >
+                Actualizar tickets
+            </button>
+
+        </section>
+
+        <div
+            id="mensajeSoporte"
+            class="support-message hidden"
+        ></div>
+
+        <section class="support-metrics">
+
+            <article class="support-metric">
+                <span>Pendientes</span>
+                <strong id="metricPendientes">0</strong>
+            </article>
+
+            <article class="support-metric">
+                <span>En revisión</span>
+                <strong id="metricRevision">0</strong>
+            </article>
+
+            <article class="support-metric">
+                <span>En proceso</span>
+                <strong id="metricProceso">0</strong>
+            </article>
+
+            <article class="support-metric">
+                <span>Resueltos</span>
+                <strong id="metricResueltos">0</strong>
+            </article>
+
+        </section>
+
+        <section class="support-panel">
+
+            <div class="support-toolbar">
+
+                <div>
+                    <strong>Tickets recibidos</strong>
+                </div>
+
+                <div class="support-filters">
+
+                    <select
+                        class="form-control"
+                        id="filtroEstado"
+                    >
+                        <option value="">
+                            Todos los estados
+                        </option>
+
+                        <option value="PENDIENTE">
+                            Pendiente
+                        </option>
+
+                        <option value="EN_REVISION">
+                            En revisión
+                        </option>
+
+                        <option value="EN_PROCESO">
+                            En proceso
+                        </option>
+
+                        <option value="RESUELTO">
+                            Resuelto
+                        </option>
+                    </select>
+
+                    <select
+                        class="form-control"
+                        id="filtroPrioridad"
+                    >
+                        <option value="">
+                            Todas las prioridades
+                        </option>
+
+                        <option value="BAJA">
+                            Baja
+                        </option>
+
+                        <option value="MEDIA">
+                            Media
+                        </option>
+
+                        <option value="ALTA">
+                            Alta
+                        </option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="support-table-wrapper">
+
+                <table class="support-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Solicitud</th>
+                            <th>Prioridad</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaTickets">
+
+                        <tr>
+                            <td colspan="6">
+                                <div class="support-empty">
+                                    No hay tickets cargados.
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <section
+            class="support-panel ticket-detail-panel hidden"
+            id="detalleTicket"
+        >
+
+            <div class="ticket-detail-header">
+
+                <div>
+                    <h2 id="detalleTitulo">
+                        Ticket
+                    </h2>
+
+                    <p id="detalleUsuario">
+                        Usuario
+                    </p>
+                </div>
+
+                <div class="ticket-detail-header-actions">
+
+                    <span
+                        class="badge status-pendiente"
+                        id="detalleEstadoBadge"
+                    >
+                        Pendiente
+                    </span>
+
+                    <button
+                        class="btn btn-secondary btn-small"
+                        id="btnCerrarDetalle"
+                        type="button"
+                    >
+                        Cerrar detalle
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="ticket-detail-body">
+
+                <div class="ticket-detail-grid">
+
+                    <div>
+
+                        <h3>Descripción</h3>
+
+                        <p
+                            class="ticket-detail-description"
+                            id="detalleDescripcion"
+                        ></p>
+
+                        <p id="detalleFecha"></p>
+
+                    </div>
+
+                    <div class="ticket-properties">
+
+                        <div class="form-group">
+
+                            <label for="detallePrioridad">
+                                Prioridad asignada por el usuario
+                            </label>
+
+                            <input
+                                class="form-control"
+                                id="detallePrioridad"
+                                type="text"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="detalleEstado">
+                                Estado
+                            </label>
+
+                            <select
+                                class="form-control"
+                                id="detalleEstado"
+                            >
+                                <option value="PENDIENTE">
+                                    Pendiente
+                                </option>
+
+                                <option value="EN_REVISION">
+                                    En revisión
+                                </option>
+
+                                <option value="EN_PROCESO">
+                                    En proceso
+                                </option>
+
+                                <option value="RESUELTO">
+                                    Resuelto
+                                </option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="ticket-detail-actions">
+
+                    <button
+                        class="btn btn-danger"
+                        id="btnEliminarTicket"
+                        type="button"
+                    >
+                        Eliminar
+                    </button>
+
+                    <button
+                        class="btn btn-primary"
+                        id="btnGuardarTicket"
+                        type="button"
+                    >
+                        Guardar estado
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/soporte.js"></script>
+
+</body>
+
+</html>

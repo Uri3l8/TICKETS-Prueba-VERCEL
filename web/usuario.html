@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Usuario | Sistema de Tickets</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/usuario.css">
+</head>
+
+<body class="user-page">
+
+    <header class="user-header">
+
+        <a class="user-brand" href="index.html">
+            <span class="user-brand-mark">ST</span>
+            <span>Sistema de Tickets</span>
+        </a>
+
+        <div class="user-header-actions">
+            <a class="btn btn-secondary btn-small" href="index.html">
+                Volver al inicio
+            </a>
+        </div>
+
+    </header>
+
+    <main class="user-container">
+
+        <section class="user-title">
+            <h1>Centro de soporte</h1>
+            <p>
+                Registra una solicitud y consulta el estado
+                de los tickets enviados a soporte.
+            </p>
+        </section>
+
+        <div id="mensajeUsuario" class="user-message hidden"></div>
+
+        <section class="user-grid">
+
+            <article class="user-panel">
+
+                <div class="user-panel-header">
+                    <h2>Nuevo ticket</h2>
+                    <p>
+                        Describe el problema para enviarlo al equipo de soporte.
+                    </p>
+                </div>
+
+                <div class="user-panel-body">
+
+                    <form id="ticketForm" class="user-form">
+
+                        <div class="form-group">
+                            <label for="nombreUsuario">
+                                Nombre
+                            </label>
+
+                            <input
+                                class="form-control"
+                                id="nombreUsuario"
+                                name="nombre_usuario"
+                                type="text"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="titulo">
+                                Título
+                            </label>
+
+                            <input
+                                class="form-control"
+                                id="titulo"
+                                name="titulo"
+                                type="text"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">
+                                Descripción
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="descripcion"
+                                name="descripcion"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prioridad">
+                                Prioridad
+                            </label>
+
+                            <select
+                                class="form-control"
+                                id="prioridad"
+                                name="prioridad"
+                            >
+                                <option value="BAJA">Baja</option>
+                                <option value="MEDIA" selected>Media</option>
+                                <option value="ALTA">Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="user-form-actions">
+                            <button
+                                class="btn btn-primary"
+                                type="submit"
+                            >
+                                Crear ticket
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+            <article class="user-panel">
+
+                <div class="user-panel-header">
+                    <h2>Tickets registrados</h2>
+                    <p>
+                        Consulta las solicitudes enviadas y su estado actual.
+                    </p>
+                </div>
+
+                <div class="user-panel-body">
+
+                    <div class="user-search">
+
+                        <input
+                            class="form-control"
+                            id="buscarUsuario"
+                            type="text"
+                            placeholder="Filtrar por nombre"
+                            maxlength="100"
+                        >
+
+                        <button
+                            class="btn btn-secondary"
+                            id="btnBuscar"
+                            type="button"
+                        >
+                            Buscar
+                        </button>
+
+                        <button
+                            class="btn btn-secondary"
+                            id="btnMostrarTodos"
+                            type="button"
+                        >
+                            Ver todos
+                        </button>
+
+                    </div>
+
+                    <div id="listaTickets" class="ticket-list">
+
+                        <div class="user-empty">
+                            <strong>Cargando tickets...</strong>
+                            Consultando las solicitudes registradas.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="js/usuario.js"></script>
+
+</body>
+
+</html>
