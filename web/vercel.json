@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://tickets-prueba-vercel-k2nifwvi1-gervinuriel8-7602.vercel.app/api/:path*"
+    }
+  ]
+}
